@@ -13,12 +13,12 @@ fun main(amount: Int, regularCustomer: Boolean): Int {
 }
 
 fun main() {
-    println(main(500, false))
-    println(main(500, true))
+    println(main(900, false))
+    println(main(900, true))
 
-    println(main(1250, false))
-    println(main(1250, true))
+    println(main(1400, false))
+    println(main(1400, true))
 
-    println(main(11200, false))
-    println(main(11200, true))
+    println(main(15000, false))
+    println(main(15000, true))
 }
