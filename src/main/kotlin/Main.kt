@@ -1,34 +1,24 @@
+fun main(amount: Int, regularCustomer: Boolean): Int {
+    val res = if (amount in 0..1000) {
+        amount
+    }
+    else if (amount in 1001..10000) {
+        amount - 100
+    }
+    else {
+        (amount * 0.95).toInt()
+    }
+
+    return if (regularCustomer) (res * 0.99).toInt() else res
+}
+
 fun main() {
-    println("Введите сумму покупки:")
-    val purchaseAmount = readLine()?.toIntOrNull() ?: 0
+    println(main(500, false))
+    println(main(500, true))
 
-    println("Являетесь ли вы постоянным покупателем? (y/n)")
-    val isRegularCustomer = readLine()?.equals("y", true) ?: false
+    println(main(1250, false))
+    println(main(1250, true))
 
-    var discountAmount = 0
-    var discountPercent = 0
-
-    when {
-        purchaseAmount in 1_001..10_000 -> {
-            discountAmount = 100
-        }
-        purchaseAmount >= 10_001 -> {
-            discountPercent = 5
-        }
-    }
-
-    if (isRegularCustomer) {
-        discountPercent += 1
-    }
-
-    if (discountAmount > 0) {
-        println("Ваша скидка составляет $discountAmount рублей.")
-        println("Сумма к оплате: ${purchaseAmount - discountAmount} рублей.")
-    } else if (discountPercent > 0) {
-        val discountedAmount = purchaseAmount * (100 - discountPercent) / 100
-        println("Ваша скидка составляет $discountPercent%.")
-        println("Сумма к оплате: $discountedAmount рублей.")
-    } else {
-        println("Сумма к оплате: $purchaseAmount рублей.")
-    }
+    println(main(11200, false))
+    println(main(11200, true))
 }
